@@ -31,10 +31,14 @@ export default {
       return Math.floor(this.rating / this.starRatio)
     },
     halfStars () {
-      return Math.floor(this.maxStars - this.fullStars - this.emptyStars)
+      let x = this.rating % this.starRatio
+      let i = 1 / 2 * this.starRatio
+      return (x >= i) ? 1 : 0
     },
     emptyStars () {
-      return Math.floor(this.maxStars - this.rating / this.starRatio)
+      let x = this.rating % this.starRatio
+      let y = this.maxStars - this.rating / this.starRatio
+      return (1 / 2 * this.starRatio > x) ? Math.ceil(y) : Math.floor(y)
     },
     maxStars () {
       return Math.floor(this.maxRating / this.starRatio)

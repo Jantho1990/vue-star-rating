@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <StarRating :rating="9" :star-ratio="4" :max-rating="20"/>
+    <StarRating :rating="14" :star-ratio="4" :max-rating="20"/>
   </div>
 </template>
 
