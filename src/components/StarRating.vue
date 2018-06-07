@@ -44,16 +44,18 @@ export default {
       return Math.floor(this.maxRating / this.starRatio)
     }
   },
-  created () {
+  beforeMount () {
     this.ratingIsValid()
   },
   methods: {
     ratingIsValid () {
-      if (this.rating < this.minRating || this.rating > this.maxRating) {
-        throw new Error(
-          `Rating must be between ${this.minRating} and ${this.maxRating} (${this.rating}).`
-        )
+      if (this.rating >= this.minRating && this.rating <= this.maxRating) {
+        return true
       }
+
+      throw new Error(
+        `Rating must be between ${this.minRating} and ${this.maxRating} (${this.rating}).`
+      )
     }
   },
   props: {
@@ -74,7 +76,7 @@ export default {
       default: 2
     }
   },
-  updated () {
+  beforeUpdate () {
     this.ratingIsValid()
   }
 }
