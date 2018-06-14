@@ -28,20 +28,21 @@ export default {
   },
   computed: {
     fullStars () {
-      return Math.floor(this.rating / this.starRatio)
+      let { rating, starRatio } = this
+      return Math.floor(rating / starRatio)
     },
     halfStars () {
-      let x = this.rating % this.starRatio
-      let i = 1 / 2 * this.starRatio
-      return (x >= i) ? 1 : 0
+      let { rating, starRatio } = this
+      let x = rating % starRatio
+      let i = (1 / 2) * starRatio
+      return x >= i ? 1 : 0
     },
     emptyStars () {
-      let x = this.rating % this.starRatio
-      let y = this.maxStars - this.rating / this.starRatio
-      return (1 / 2 * this.starRatio > x) ? Math.ceil(y) : Math.floor(y)
+      return this.maxStars - this.fullStars - this.halfStars
     },
     maxStars () {
-      return Math.floor(this.maxRating / this.starRatio)
+      let { maxRating, starRatio } = this
+      return Math.ceil(maxRating / starRatio)
     }
   },
   beforeMount () {
