@@ -1,27 +1,25 @@
-# vue-star-rating
+# Vue Star-Rating
 
-> A Vue.js project
+This is a sample Vue project, built around a StarRating component which displays stars and half-stars based on the inputs you give it, similar to what you might see on Amazon or other ecommerce websites.
 
-## Build Setup
-
-``` bash
-# install dependencies
+## Install
+```
+git clone https://github.com/Jantho1990/vue-star-rating.git vue-star-rating
+cd vue-star-rating
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
+npm start
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+This should open a page on your browser to the demo app. If not, you should be able to access it via `localhost:3000`.
+
+## How To Use
+Change the inputs via the inputs section:
+- `Rating` changes the actual rating.
+- `Min Rating` sets the lower limit for a rating.
+- `Max Rating` sets the upper limit for a rating.
+- `Star Ratio` sets how many rating points are required to add a star.
+
+Updating the input values should show in the field of stars below the Vue logo. Visually, increments only occur in half-stars, but you can set the rating to anything you want.
+
+## I Want To Use This In A Real App
+This is just a sample project. It was not designed for inclusion in a real app. That said, if it inspires you, that's awesome!
