@@ -103,7 +103,7 @@ h1 {
     max-width: 768px;
     grid-gap: 0;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
       "title title"
       "rating input";
   }
