@@ -93,6 +93,8 @@ export default {
 
 <style>
 .star-rating {
+  grid-area: rating;
+  margin: auto;
   color: gold;
   display: flex;
   flex-direction: row;

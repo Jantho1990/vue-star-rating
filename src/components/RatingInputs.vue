@@ -70,5 +70,19 @@ export default {
 </script>
 
 <style>
+.rating-inputs {
+  grid-area: input;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  text-align: left;
+}
 
+.rating-inputs input {
+  margin: auto;
+}
+
+.rating-inputs label {
+  margin: auto 0;
+}
 </style>
