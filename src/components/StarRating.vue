@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import ratingIsValid from '../lib/validate'
+
 import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 import regular from '@fortawesome/fontawesome-free-regular'
@@ -22,6 +24,14 @@ fontawesome.library.add(solid, regular)
 
 export default {
   name: 'StarRating',
+  beforeMount () {
+    let {rating, minRating, maxRating, starRatio, limit} = this
+    if (!ratingIsValid(rating, minRating, maxRating, starRatio, limit)) {
+      throw new Error(
+        `Rating must be between ${this.minRating} and ${this.maxRating} (${this.rating}).`
+      )
+    }
+  },
   components: {
     FontAwesomeIcon,
     FontAwesomeLayers
@@ -44,9 +54,6 @@ export default {
       let { maxRating, starRatio } = this
       return Math.ceil(maxRating / starRatio)
     }
-  },
-  beforeMount () {
-    this.ratingIsValid()
   },
   methods: {
     ratingIsValid () {
@@ -75,10 +82,11 @@ export default {
     starRatio: {
       type: Number,
       default: 2
+    },
+    limit: {
+      type: Number,
+      default: 1000
     }
-  },
-  beforeUpdate () {
-    this.ratingIsValid()
   }
 }
 </script>

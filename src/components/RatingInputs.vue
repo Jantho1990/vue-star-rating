@@ -8,13 +8,16 @@
 </template>
 
 <script>
+import inputIsValid from '../lib/validate'
+
 export default {
   data () {
     return {
       rating_: this.rating,
       minRating_: this.minRating,
       maxRating_: this.maxRating,
-      starRatio_: this.starRatio
+      starRatio_: this.starRatio,
+      limit_: this.limit
     }
   },
   methods: {
@@ -23,14 +26,18 @@ export default {
         rating_,
         minRating_,
         maxRating_,
-        starRatio_
+        starRatio_,
+        limit_
       } = this
-      this.$emit('rating-update', {
-        rating: Number(rating_),
-        minRating: Number(minRating_),
-        maxRating: Number(maxRating_),
-        starRatio: Number(starRatio_)
-      })
+
+      if (inputIsValid(rating_, minRating_, maxRating_, starRatio_, limit_)) {
+        this.$emit('rating-update', {
+          rating: Number(rating_),
+          minRating: Number(minRating_),
+          maxRating: Number(maxRating_),
+          starRatio: Number(starRatio_)
+        })
+      }
     }
   },
   props: {
@@ -49,6 +56,10 @@ export default {
     starRatio: {
       type: Number,
       default: 2
+    },
+    limit: {
+      type: Number,
+      default: 1000
     }
   }
 }

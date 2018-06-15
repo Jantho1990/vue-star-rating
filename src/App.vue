@@ -3,10 +3,19 @@
     <img src="./assets/logo.png">
     <StarRating
       :rating="rating"
-      :star-ratio="starRatio"
       :min-rating="minRating"
-      :max-rating="maxRating"/>
-    <RatingInputs @rating-update="handleRatingUpdate"/>
+      :max-rating="maxRating"
+      :star-ratio="starRatio"
+      :limit="limit"
+    />
+    <RatingInputs
+      :rating="rating"
+      :min-rating="minRating"
+      :max-rating="maxRating"
+      :star-ratio="starRatio"
+      :limit="limit"
+      @rating-update="handleRatingUpdate"
+    />
   </div>
 </template>
 
@@ -25,7 +34,8 @@ export default {
       rating: 5,
       minRating: 0,
       maxRating: 10,
-      starRatio: 2
+      starRatio: 2,
+      limit: 1000
     }
   },
   methods: {
