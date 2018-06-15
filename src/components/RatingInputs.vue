@@ -1,9 +1,9 @@
 <template>
   <div class="rating-inputs">
-    <input type="number" v-model="rating_" :min="minRating_" :max="maxRating_">
-    <input type="number" v-model="minRating_">
-    <input type="number" v-model="maxRating_">
-    <input type="number" v-model="starRatio_">
+    <input type="number" @change="handleRating" v-model="rating_" :min="minRating_" :max="maxRating_">
+    <input type="number" @change="handleRating" v-model="minRating_">
+    <input type="number" @change="handleRating" v-model="maxRating_">
+    <input type="number" @change="handleRating" v-model="starRatio_">
   </div>
 </template>
 
@@ -15,6 +15,22 @@ export default {
       minRating_: this.minRating,
       maxRating_: this.maxRating,
       starRatio_: this.starRatio
+    }
+  },
+  methods: {
+    handleRating () {
+      let {
+        rating_,
+        minRating_,
+        maxRating_,
+        starRatio_
+      } = this
+      this.$emit('rating-update', {
+        rating: Number(rating_),
+        minRating: Number(minRating_),
+        maxRating: Number(maxRating_),
+        starRatio: Number(starRatio_)
+      })
     }
   },
   props: {

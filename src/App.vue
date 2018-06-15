@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <StarRating :rating="14" :star-ratio="4" :max-rating="20"/>
-    <RatingInputs/>
+    <StarRating
+      :rating="rating"
+      :star-ratio="starRatio"
+      :min-rating="minRating"
+      :max-rating="maxRating"/>
+    <RatingInputs @rating-update="handleRatingUpdate"/>
   </div>
 </template>
 
@@ -15,6 +19,28 @@ export default {
   components: {
     StarRating,
     RatingInputs
+  },
+  data () {
+    return {
+      rating: 5,
+      minRating: 0,
+      maxRating: 10,
+      starRatio: 2
+    }
+  },
+  methods: {
+    handleRatingUpdate (data) {
+      let {
+        rating,
+        minRating,
+        maxRating,
+        starRatio
+      } = data
+      this.rating = rating
+      this.minRating = minRating
+      this.maxRating = maxRating
+      this.starRatio = starRatio
+    }
   }
 }
 </script>
