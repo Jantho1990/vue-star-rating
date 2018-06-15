@@ -1,9 +1,13 @@
 <template>
   <div class="rating-inputs">
-    <input type="number" @change="handleRating" v-model="rating_" :min="minRating_" :max="maxRating_">
-    <input type="number" @change="handleRating" v-model="minRating_">
-    <input type="number" @change="handleRating" v-model="maxRating_">
-    <input type="number" @change="handleRating" v-model="starRatio_">
+    <label for="rating">Rating: </label>
+    <input name="rating" type="number" @change="handleRating" v-model="rating_" :min="minRating_" :max="maxRating_">
+    <label for="minRating">Min Rating:</label>
+    <input name="minRating" type="number" @change="handleRating" v-model="minRating_" :min="0" :max="limit_">
+    <label for="maxRating">Max Rating:</label>
+    <input name="maxRating" type="number" @change="handleRating" v-model="maxRating_" :min="0" :max="limit_">
+    <label for="starRatio">Star Ratio:</label>
+    <input name="starRatio" type="number" @change="handleRating" v-model="starRatio_">
   </div>
 </template>
 
