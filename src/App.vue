@@ -3,7 +3,7 @@
     <h1>Vue StarRating</h1>
     <div class="star-rating-container">
       <img class="logo" src="./assets/logo.png">
-      <StarRating
+      <star-rating
         :rating="rating"
         :min-rating="minRating"
         :max-rating="maxRating"
@@ -11,7 +11,7 @@
         :limit="limit"
       />
     </div>
-    <RatingInputs
+    <rating-inputs
       :rating="rating"
       :min-rating="minRating"
       :max-rating="maxRating"
@@ -25,6 +25,22 @@
 <script>
 import StarRating from './components/StarRating'
 import RatingInputs from './components/RatingInputs'
+import fontawesome from '@fortawesome/fontawesome'
+import {
+  faStar,
+  faStarHalf
+} from '@fortawesome/fontawesome-free-solid'
+import {
+  faStar as farStar,
+  faStarHalf as farStarHalf
+} from '@fortawesome/fontawesome-free-regular'
+
+fontawesome.library.add(
+  faStar,
+  faStarHalf,
+  farStar,
+  farStarHalf
+)
 
 export default {
   name: 'App',
@@ -59,6 +75,12 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 #app {
   display: grid;
   grid-template-columns: 1fr;

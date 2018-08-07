@@ -12,15 +12,10 @@
 <script>
 import ratingIsValid from '../lib/validate'
 
-import fontawesome from '@fortawesome/fontawesome'
-import solid from '@fortawesome/fontawesome-free-solid'
-import regular from '@fortawesome/fontawesome-free-regular'
 import {
   FontAwesomeIcon,
   FontAwesomeLayers
 } from '@fortawesome/vue-fontawesome'
-
-fontawesome.library.add(solid, regular)
 
 export default {
   name: 'StarRating',
@@ -92,17 +87,9 @@ export default {
 </script>
 
 <style>
-.star-rating {
-  grid-area: rating;
-  margin: auto;
-  color: gold;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
 .star-rating > .star {
-  margin: auto 0.1em;
+  color: gold;
+  max-width: 10em;
+  margin: auto;
 }
 </style>

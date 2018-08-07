@@ -1,13 +1,13 @@
 <template>
   <div class="rating-inputs">
-    <label for="rating">Rating: </label>
-    <input name="rating" type="number" @change="handleRating" v-model="rating_" :min="minRating_" :max="maxRating_">
-    <label for="minRating">Min Rating:</label>
-    <input name="minRating" type="number" @change="handleRating" v-model="minRating_" :min="0" :max="limit_">
-    <label for="maxRating">Max Rating:</label>
-    <input name="maxRating" type="number" @change="handleRating" v-model="maxRating_" :min="0" :max="limit_">
-    <label for="starRatio">Star Ratio:</label>
-    <input name="starRatio" type="number" @change="handleRating" v-model="starRatio_">
+    <label for="rating">Rating</label>
+    <input name="rating" type="number" @input="handleRating" v-model="rating_" :min="minRating_" :max="maxRating_">
+    <label for="minRating">Min Rating</label>
+    <input name="minRating" type="number" @input="handleRating" v-model="minRating_" :min="0" :max="limit_">
+    <label for="maxRating">Max Rating</label>
+    <input name="maxRating" type="number" @input="handleRating" v-model="maxRating_" :min="0" :max="limit_">
+    <label for="starRatio">Star Ratio</label>
+    <input name="starRatio" type="number" @input="handleRating" v-model="starRatio_">
   </div>
 </template>
 
@@ -76,6 +76,7 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 1fr;
   text-align: left;
+  margin: auto;
 }
 
 .rating-inputs input {
