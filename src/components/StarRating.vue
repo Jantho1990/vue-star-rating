@@ -1,11 +1,30 @@
 <template>
   <div class="star-rating">
-    <font-awesome-icon class="star" icon="star" :key="`fs${i}`" v-for="(fs, i) in fullStars"/>
-    <font-awesome-layers class="star" :key="`hs${i}`" v-for="(hs, i) in halfStars">
+    <font-awesome-icon
+      class="star"
+      icon="star"
+      :key="`fs${i}`"
+      v-for="(fs, i) in fullStars"
+    />
+
+    <font-awesome-layers
+      class="star"
+      :key="`hs${i}`"
+      v-for="(hs, i) in halfStars"
+    >
       <font-awesome-icon icon="star-half"/>
-      <font-awesome-icon flip="horizontal" :icon="['far', 'star-half']"/>
+      <font-awesome-icon
+        flip="horizontal"
+        :icon="['far', 'star-half']"
+      />
     </font-awesome-layers>
-    <font-awesome-icon class="star" :icon="['far', 'star']" :key="`es${i}`" v-for="(es, i) in emptyStars"/>
+    
+    <font-awesome-icon
+      class="star"
+      :icon="['far', 'star']"
+      :key="`es${i}`"
+      v-for="(es, i) in emptyStars"
+    />
   </div>
 </template>
 
