@@ -65,7 +65,7 @@ export default {
         starRatio_,
         limit_
       } = this
-      console.log(rating_, minRating_, maxRating_, starRatio_, limit_)
+
       if (this.anyAreEmpty(rating_, minRating_, maxRating_, starRatio_)) return
 
       rating_ = Number(rating_)
@@ -75,10 +75,10 @@ export default {
 
       if (inputIsValid(rating_, minRating_, maxRating_, starRatio_, limit_)) {
         this.$emit('rating-update', {
-          rating: Number(rating_),
-          minRating: Number(minRating_),
-          maxRating: Number(maxRating_),
-          starRatio: Number(starRatio_)
+          rating: rating_,
+          minRating: minRating_,
+          maxRating: maxRating_,
+          starRatio: starRatio_
         })
       }
     }
