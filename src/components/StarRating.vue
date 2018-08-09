@@ -18,7 +18,7 @@
         :icon="['far', 'star-half']"
       />
     </font-awesome-layers>
-    
+
     <font-awesome-icon
       class="star"
       :icon="['far', 'star']"
@@ -66,17 +66,6 @@ export default {
     maxStars () {
       let { maxRating, starRatio } = this
       return Math.ceil(maxRating / starRatio)
-    }
-  },
-  methods: {
-    ratingIsValid () {
-      if (this.rating >= this.minRating && this.rating <= this.maxRating) {
-        return true
-      }
-
-      throw new Error(
-        `Rating must be between ${this.minRating} and ${this.maxRating} (${this.rating}).`
-      )
     }
   },
   props: {
