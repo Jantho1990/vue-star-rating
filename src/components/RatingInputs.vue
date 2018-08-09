@@ -1,13 +1,42 @@
 <template>
   <div class="rating-inputs">
     <label for="rating">Rating</label>
-    <input name="rating" type="number" @input="handleRating" v-model="rating_" :min="minRating_" :max="maxRating_">
+    <input
+      name="rating"
+      type="number"
+      @input="handleRating"
+      v-model="rating_"
+      :min="minRating_"
+      :max="maxRating_"
+    />
+
     <label for="minRating">Min Rating</label>
-    <input name="minRating" type="number" @input="handleRating" v-model="minRating_" :min="0" :max="limit_">
+    <input
+      name="minRating"
+      type="number"
+      @input="handleRating"
+      v-model="minRating_"
+      :min="0"
+      :max="limit_"
+    />
+
     <label for="maxRating">Max Rating</label>
-    <input name="maxRating" type="number" @input="handleRating" v-model="maxRating_" :min="0" :max="limit_">
+    <input
+      name="maxRating"
+      type="number"
+      @input="handleRating"
+      v-model="maxRating_"
+      :min="0"
+      :max="limit_"
+    />
+
     <label for="starRatio">Star Ratio</label>
-    <input name="starRatio" type="number" @input="handleRating" v-model="starRatio_">
+    <input
+      name="starRatio"
+      type="number"
+      @input="handleRating"
+      v-model="starRatio_"
+    />
   </div>
 </template>
 
@@ -25,6 +54,9 @@ export default {
     }
   },
   methods: {
+    anyAreEmpty (...values) {
+      return values.filter(value => value === '').length > 0
+    },
     handleRating () {
       let {
         rating_,
@@ -33,6 +65,13 @@ export default {
         starRatio_,
         limit_
       } = this
+      console.log(rating_, minRating_, maxRating_, starRatio_, limit_)
+      if (this.anyAreEmpty(rating_, minRating_, maxRating_, starRatio_)) return
+
+      rating_ = Number(rating_)
+      minRating_ = Number(minRating_)
+      maxRating_ = Number(maxRating_)
+      starRatio_ = Number(starRatio_)
 
       if (inputIsValid(rating_, minRating_, maxRating_, starRatio_, limit_)) {
         this.$emit('rating-update', {

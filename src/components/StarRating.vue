@@ -23,7 +23,7 @@ export default {
     let {rating, minRating, maxRating, starRatio, limit} = this
     if (!ratingIsValid(rating, minRating, maxRating, starRatio, limit)) {
       throw new Error(
-        `Rating must be between ${this.minRating} and ${this.maxRating} (${this.rating}).`
+        `Rating must be between ${this.minRating} and ${this.maxRating} (${this.rating}), and no value may exceed ${this.limit}.`
       )
     }
   },

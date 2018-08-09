@@ -1,25 +1,25 @@
-export let ratingIsValid = function (rating, minRating, maxRating) {
+export const ratingIsValid = function (rating, minRating, maxRating) {
   if (rating >= minRating && rating <= maxRating) return true
   return false
 }
 
-export let valuesNotZeroOrLess = function (...values) {
+export const valuesNotZeroOrLess = function (...values) {
   let filteredValues = values.filter(value => value > 0)
 
   return values.length === filteredValues.length
 }
 
-export let valuesNotNegative = function (...values) {
+export const valuesNotNegative = function (...values) {
   let filteredValues = values.filter(value => value >= 0)
 
   return values.length === filteredValues.length
 }
 
-export let minLessThanMax = function (minRating, maxRating) {
+export const minLessThanMax = function (minRating, maxRating) {
   return minRating < maxRating
 }
 
-export let valuesLessThanHardLimit = function (limit, ...values) {
+export const valuesLessThanHardLimit = function (limit, ...values) {
   let filteredValues = values.filter(value => value <= limit)
 
   return values.length === filteredValues.length
