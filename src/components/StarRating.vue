@@ -30,7 +30,6 @@
 
 <script>
 import ratingIsValid from '../lib/validate'
-
 import {
   FontAwesomeIcon,
   FontAwesomeLayers
